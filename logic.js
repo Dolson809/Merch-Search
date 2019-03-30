@@ -94,6 +94,7 @@ database.ref().on("child_added", function(snapshot) {
     var venue = snapshot.val().venue;
     var location = snapshot.val().location;
 
+    // Creating table for recent searches to show band, venue, and location
     $("#recent-searches > tbody").append(`
         <tr>
             <td>${band}</td>
