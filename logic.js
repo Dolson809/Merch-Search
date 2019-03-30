@@ -67,7 +67,7 @@ $("#submit").on("click", function(event) {
     event.preventDefault();
 
     // Variables to hold band and location
-    var band = $("#bandInput").val().trim();
+    var band = $("#band-input").val().trim();
     var venue = $("#venue").val().trim();
     var location = $("#location").val().trim();
 
@@ -82,7 +82,7 @@ $("#submit").on("click", function(event) {
     database.ref().push(newBand)
 
     // Clearing form
-    $("#bandInput").val("");
+    $("#band-input").val("");
 });
 
 //  At the page load and subsequent value changes, get a snapshot of the stored data.
