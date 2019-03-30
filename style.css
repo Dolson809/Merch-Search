@@ -1,0 +1,31 @@
+.nav-wrapper {
+    background-color: rgb(43, 174, 179);
+    height: 110%;
+}
+
+body { 
+    background-color: rgb(189, 183, 183);
+} 
+
+#mainContainer {
+    border: solid black 1px;
+    background-color: rgb(92, 90, 90);
+    height: 700px;
+    margin-top: 1px;
+    text-align: center;
+}
+ 
+
+footer {
+    text-align: center;
+    height: 100px; /* change this to other values to and see */
+    background: rgb(43, 174, 179);
+    color: #fff;
+    border: solid black 1px;
+    font-size: 25px;
+}
+
+#footer-text {
+    display: inline-block;
+  vertical-align: middle;
+}
