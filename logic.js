@@ -22,11 +22,13 @@
 
 // Add Google Maps API here
 
-
-
-
-
-
+var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
 
 
 
@@ -68,6 +70,7 @@ $("#submit").on("click", function(event) {
 
     // Variables to hold band and location
     var band = $("#band-input").val().trim();
+    // Will probably need to find these within the APIs
     var venue = $("#venue").val().trim();
     var location = $("#location").val().trim();
 

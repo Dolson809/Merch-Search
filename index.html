@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Merch Search</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="container" id = "mainContainer">
+    <div class="row" id = "row1">
+        <div class="col s6">1</div>
+
+        <div class="col s6">2</div>
+        
+    </div>
+
+    <div class="row" id = "row2">
+        <div class="col s6">3</div>
+        
+        <div class="col s6">4</div>
+
+    </div>
+
+    <div class="row" id = "row3">
+        <div class="col s6">5</div>
+        
+        <div class="col s6">6</div>
+        
+    </div>
+        <br><br> -->
+    <div id="map"></div>
+    <script src="logic.js"></script>   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&callback=initMap"
+    async defer></script>
+  </body>
+</html>
