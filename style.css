@@ -1,6 +1,28 @@
-.nav-wrapper {
+#header{
     background-color: rgb(43, 174, 179);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+}
+
+.nav-wrapper {
+    margin: 0px 185px 0px 185px;
+    background-color: white;
     height: 110%;
+    color: white;
+    text-size-adjust: 40px;
+
+}
+
+#navBar{
+    background-color: rgb(189, 183, 183);
+    /* background: white;
+    color: white;  */
+    
+}
+
+#band-input{
+    font-size: 40px;
 }
 
 body { 
