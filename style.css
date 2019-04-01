@@ -45,11 +45,14 @@ footer {
     color: #fff;
     border: solid black 1px;
     font-size: 25px;
+    width: 100%;
+    /* position: absolute;
+    bottom: 0; */
 }
 
 #footer-text {
     display: inline-block;
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 #map {
