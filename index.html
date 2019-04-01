@@ -1,85 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Merch Search</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  
-  <body>
-    <div id="header">
-        <h1>Merch Search LLC</h1> 
-    </div>
-    <nav id="navBar">
-        <div class="nav-wrapper">
-            <form id="search-form">
-                <div class="input-field">
-                    <input id="search" type="search" required>
-                </div>
-            </form>
-        </div>
-    </nav> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" href="https://use.typekit.net/car8sqs.css">
+    <title>Merch-Search</title>
+</head>
 
-    
-    <div class="container" id = "mainContainer">
-        <div class="row">
-            <div class="col-xs-6">
-            <div id='events-panel' class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Events</h3>
-                </div>
-                    <div class="panel-body">
-                        <div id="events" class="list-group">
-                            <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">Event title</h4>
-                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">Event title</h4>
-                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">Event title</h4>
-                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="venue"></p>
-                            </a>
-                            <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">Event title</h4>
-                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="venue"></p>
-                            </a>
-                        </div>
-                    </div>
-                <div class="panel-footer">
-                    <nav>
-                        <ul class="pager">
-                        <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
-                        <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
+<body>
+<div id="header">
+   <h1 id="h1">Merch Search</h1> 
+</div>
+
+<div id="nav-Bar">
+    <div class="nav-wrapper">
+        <form>
+            <div class="artist-input">
+              <input id="artist" required>
             </div>
-                
-                <div id='attraction-panel' class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Attraction</h3>
-                    </div>
-                    <div id="attraction" class="panel-body">
-                        <h4 class="list-group-item-heading">Attraction title</h4>
-                        <img class="col-xs-12" src="">
-                        <p id="classification"></p>
-                    </div>
-                </div>
-                </div>
-                </div>
-        </div>
-    <!-- <div class="row" id = "row1">
+        </form>
+    </div>
+</div> 
+
+
+<div  id = "mainContainer">
+
+    <div  id="bandNameContainer">
+        <h1 id="bandName">Tame Impala</h1>
+    </div>
+
+    <div id="imageContainer"></div>
+
+
+</div>
+
+
+<footer class="footer">
+    <div class="footer-copyright">
+        <p id=footer-text> © Merch Search 2019</p>
+    </div>
+</footer>
+
+<p id="location">location there</p>
+        <div id="map">Map is Here</div>
+        <div id="events"></div>
+
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+        <script src="logic.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!-- <div class="row" id = "row1">
         <div class="col s6">1</div>
         <div class="col s6">2</div>
         
@@ -95,18 +78,3 @@
         <div class="col s6">6</div>
         
     </div> -->
-        <br><br>
-      <p id="location">location there</p>
-      <div id="map"></div>
-      <div id="events"></div>
-
-    <footer class="footer">
-        <div class="footer-copyright">
-            <p id=footer-text> © Merch Search 2019</p>
-        </div>
-    </footer>
-    
-    <script src="logic.js"></script>   
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&callback=initMap"
-    async defer></script>
-  </body>
