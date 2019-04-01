@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #header{
     background-color: rgb(43, 174, 179);
     padding-top: 1px;
@@ -64,3 +65,13 @@ html, body {
     padding: 0;
 }
 >>>>>>> origin/firebase
+=======
+#map {
+    height: 50%
+}
+html, body {
+    height: 50%;
+    margin: 0;
+    padding: 0;
+}
+>>>>>>> origin/Magee

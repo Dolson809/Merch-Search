@@ -71,12 +71,12 @@ function showError(error) {
 var map;
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("row1"), {
         center: {lat: -34.397, lng: 150.644},
         zoom: 10
     });
 }
-console.log(map);
+
 
 function showEvents(json) {
     for(var i=0; i<json.page.size; i++) {
