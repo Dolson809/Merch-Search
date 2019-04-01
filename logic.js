@@ -1,9 +1,23 @@
-// Add Ticketmaster API here
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyCB6qh2EIp56wDgCmKr6Xr7ZhC4QeWkCUE",
+    authDomain: "live-band-locator.firebaseapp.com",
+    databaseURL: "https://live-band-locator.firebaseio.com",
+    projectId: "live-band-locator",
+    storageBucket: "live-band-locator.appspot.com",
+    messagingSenderId: "237657419064"
+  };
+firebase.initializeApp(config);
+
+// Assign the reference to the database to a variable named 'database'
+var database = firebase.database();
+
 
 
 $('#search-form').on('submit', function (event) {
     event.preventDefault();
     var search = $("#search").val();
+
     function showPosition(position) {
         var x = document.getElementById("location");
         x.innerHTML = "Latitude: " + position.coords.latitude +
@@ -27,7 +41,22 @@ $('#search-form').on('submit', function (event) {
             }
         });
 
-    }
+        // Firebase
+        // Variables to hold band and location
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Creating an object to push to firebase
+        var newSearch = {
+            search: search,
+            latitude: latitude,
+            longitude: longitude
+        }
+        console.log(newSearch);
+        // Pushing results to firebase
+        database.ref().push(newSearch);
+
+    };
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -35,7 +64,7 @@ $('#search-form').on('submit', function (event) {
             var x = document.getElementById("location");
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
-    }
+    };
 
     function showError(error) {
         switch (error.code) {
@@ -52,12 +81,12 @@ $('#search-form').on('submit', function (event) {
                 x.innerHTML = "An unknown error occurred."
                 break;
         }
-    }
+    };
     function showEvents(json) {
         for (var i = 0; i < json.page.size; i++) {
             $("#events").append("<p>" + json._embedded.events[i].name + "</p>");
         }
-    }
+    };
 
     function initMap(position, json) {
         var mapDiv = document.getElementById('map');
@@ -68,7 +97,7 @@ $('#search-form').on('submit', function (event) {
         for (var i = 0; i < json.page.size; i++) {
             addMarker(map, json._embedded.events[i]);
         }
-    }
+    };
 
     function addMarker(map, event) {
         var marker = new google.maps.Marker({
@@ -77,9 +106,22 @@ $('#search-form').on('submit', function (event) {
         });
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
         console.log(marker);
-    }
+    };
     getLocation();
-})
+
+    database.ref().on("child_added", function(snapshot) {
+        // Variables to hold search name
+        var search = snapshot.val().search;
+    
+        // // Creating table for recent searches to show band, venue, and location
+        $("#recent-searches > tbody").append(`
+            <tr>
+                <td>${search}</td>
+            </tr>
+        `);
+    });
+
+});
 
 
 
@@ -102,61 +144,10 @@ $('#search-form').on('submit', function (event) {
 // {/* <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script> */}
 
 
-// // Initialize Firebase
-// var config = {
-//     apiKey: "AIzaSyCB6qh2EIp56wDgCmKr6Xr7ZhC4QeWkCUE",
-//     authDomain: "live-band-locator.firebaseapp.com",
-//     databaseURL: "https://live-band-locator.firebaseio.com",
-//     projectId: "live-band-locator",
-//     storageBucket: "live-band-locator.appspot.com",
-//     messagingSenderId: "237657419064"
-//   };
-// firebase.initializeApp(config);
 
-// // Assign the reference to the database to a variable named 'database'
-// var database = firebase.database();
 
-// // Whenever a user clicks the submit button
-// $("#submit").on("click", function(event) {
 
-//     // Prevent form from submitting with event.preventDefault() or returning false
-//     event.preventDefault();
+//  At the page load and subsequent value changes, get a snapshot of the stored data.
+// This function allows you to update your page in real-time when the firebase database changes.
 
-//     // Variables to hold band and location
-//     var band = $("#band-input").val().trim();
-//     // Will probably need to find these within the APIs
-//     var venue = $("#venue").val().trim();
-//     var location = $("#location").val().trim();
 
-//     // Creating an object to push to firebase
-//     var newBand = {
-//         band: band,
-//         venue: venue,
-//         location: location
-//     }
-
-//     // Pushing results to firebase
-//     database.ref().push(newBand)
-
-//     // Clearing form
-//     $("#band-input").val("");
-// });
-
-// //  At the page load and subsequent value changes, get a snapshot of the stored data.
-// // This function allows you to update your page in real-time when the firebase database changes.
-
-// database.ref().on("child_added", function(snapshot) {
-//     // Variables to hold band name and location
-//     var band = snapshot.val().band;
-//     var venue = snapshot.val().venue;
-//     var location = snapshot.val().location;
-
-//     // Creating table for recent searches to show band, venue, and location
-//     $("#recent-searches > tbody").append(`
-//         <tr>
-//             <td>${band}</td>
-//             <td>${venue}</td>
-//             <td>${location}</td>
-//         </tr>
-//     `);
-// });
