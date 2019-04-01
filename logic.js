@@ -1,11 +1,5 @@
 // Add Ticketmaster API here
 
-console.log("hi");
-
-function searchEvent(){
-}
-
-var search;
 
 $('#search-form').on('submit', function (event) {
     event.preventDefault();
