@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Merch Search</title>
@@ -15,37 +16,86 @@
     </div>
     <nav id="navBar">
         <div class="nav-wrapper">
-            <form>
+            <form id="search-form">
                 <div class="input-field">
-                    <input id="band-input" type="search" required>
+                    <input id="search" type="search" required>
                 </div>
             </form>
         </div>
     </nav> 
+
     
     <div class="container" id = "mainContainer">
-    <div class="row" id = "row1">
+        <div class="row">
+            <div class="col-xs-6">
+            <div id='events-panel' class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Events</h3>
+                </div>
+                    <div class="panel-body">
+                        <div id="events" class="list-group">
+                            <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Event title</h4>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="venue"></p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Event title</h4>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="venue"></p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Event title</h4>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="venue"></p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">Event title</h4>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="venue"></p>
+                            </a>
+                        </div>
+                    </div>
+                <div class="panel-footer">
+                    <nav>
+                        <ul class="pager">
+                        <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
+                        <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+                
+                <div id='attraction-panel' class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Attraction</h3>
+                    </div>
+                    <div id="attraction" class="panel-body">
+                        <h4 class="list-group-item-heading">Attraction title</h4>
+                        <img class="col-xs-12" src="">
+                        <p id="classification"></p>
+                    </div>
+                </div>
+                </div>
+                </div>
+        </div>
+    <!-- <div class="row" id = "row1">
         <div class="col s6">1</div>
-
         <div class="col s6">2</div>
         
     </div>
-
     <div class="row" id = "row2">
         <div class="col s6">3</div>
         
         <div class="col s6">4</div>
-
     </div>
-
     <div class="row" id = "row3">
         <div class="col s6">5</div>
         
         <div class="col s6">6</div>
         
-    </div>
+    </div> -->
         <br><br>
-
       <p id="location">location there</p>
       <div id="map"></div>
       <div id="events"></div>
@@ -60,22 +110,3 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&callback=initMap"
     async defer></script>
   </body>
-
-</div>
-
-
-
-
-
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<script src="johnlogic.js"></script> 
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&callback=initMap" async defer></script>
-
-</body>
-</html>
