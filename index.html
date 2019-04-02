@@ -114,14 +114,25 @@
       <div id="map"></div>
       <div id="events"></div>
 
+
+        <div id="map-display" w-type="map" w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG"
+        w-googleapikey="AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os"w-keyword="" w-theme="simple" w-colorscheme="light"
+        w-width="500" w-height="286" w-size="10" w-border="1" w-borderradius="4" w-postalcode="" w-radius="25"
+        w-countrycode="US" w-city="" w-period="week" w-layout="horizontal" w-attractionid="Music" w-promoterid=""
+        w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="off" w-source="ticketmaster"
+        w-latlong=""></div>
+
     <footer class="footer">
         <div class="footer-copyright">
             <p id=footer-text> © Merch Search 2019</p>
         </div>
     </footer>
-    
-    <script src="logic.js"></script>   
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&callback=initMap"
-    async defer></script>
-  </body>
 
+    <script src="logic.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&libraries=visualization,places"
+        async defer></script>
+    <script
+        src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
+
+</body>
