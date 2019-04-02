@@ -8,71 +8,97 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" href="https://use.typekit.net/car8sqs.css">
-    <title>Merch-Search</title>
+    <title>Band Search</title>
+    
 </head>
 
 <body>
 <div id="header">
-   <h1 id="h1">Merch Search</h1> 
+   <h1 id="h1">Show Search</h1> 
 </div>
 
-<div id="nav-Bar">
-    <div class="nav-wrapper">
+<div id="navBar">
+    <div id="navWrapper">
         <form>
-            <div class="artist-input">
-              <input id="artist" required>
-            </div>
-        </form>
+            <input id="artist" placeholder=" Search Bands Here!" required>
+        </form>    
     </div>
 </div> 
 
-
-<div  id = "mainContainer">
-
+<div id="mainContainer">
     <div  id="bandNameContainer">
-        <h1 id="bandName">Tame Impala</h1>
+            <h1 id="bandName">Tame Impala</h1>
     </div>
 
-    <div id="imageContainer"></div>
 
+    <!-- <div id="infoBox">
+            <div class="row" >
+                <div class="col s8" id="eventBox">
+                    <p>Artist/Event:</p>
+                    <p>Tame Impala</p>
+                </div>
+            
+                <div class="col s8" id="venueBox">
+                    <p>Venue:</p>
+                    <p>The Fox Theatre Pomona</p>
+                </div>
+            
+                <div class="col s8" id="addressBox">
+                    <p>Address:</p>
+                    <p>301 Garey Ave, Pomona, CA 91766</p>
+                </div>
+            
+                <div class="col s8" id="priceBox">
+                    <p>Price:</p>
+                    <p>$75-125</p>
+                </div>
+            </div>
+    </div> -->
+
+    <div id="infoBox">
+        <div class="row" id="eventBox">
+            <div class="col">
+                <h class=infoHeads>Artist/Event:</h>
+                <p id="eventPara">Tame Impala</p>
+            </div>
+        </div>
+        <div class="row" id="venueBox">
+            <div class="col ">
+                <h class=infoHeads>Venue:</h>
+                <p id="venuePara">The Fox Theatre Pomona</p>
+            </div>
+        </div>
+        <div class="row" id="addressBox">
+            <div class="col">
+                <h class=infoHeads>Address:</h>
+                <p id="addressPara">301 Garey Ave, Pomona, CA 91766</p>
+            </div>
+        </div>
+        <div class="row" id="priceBox">
+            <div class="col ">
+                <h class=infoHeads>Price:</h>
+                <p id="pricePara">$75-125</p>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 
-<footer class="footer">
-    <div class="footer-copyright">
-        <p id=footer-text> © Merch Search 2019</p>
-    </div>
+<footer id="footer">
+    <p id=footer-text> © Merch Search 2019</p>
 </footer>
 
 
-
-
+<script >src="craplogic.js"</script>
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous">
+</script>
 
 </body>
 </html>
 
 
 
-
-
-<!-- <div class="row" id = "row1">
-        <div class="col s6">1</div>
-
-        <div class="col s6">2</div>
-        
-    </div>
-
-    <div class="row" id = "row2">
-        <div class="col s6">3</div>
-        
-        <div class="col s6">4</div>
-
-    </div>
-
-    <div class="row" id = "row3">
-        <div class="col s6">5</div>
-        
-        <div class="col s6">6</div>
-        
-    </div> -->
