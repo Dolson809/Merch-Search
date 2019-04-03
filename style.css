@@ -2,7 +2,10 @@
     background-color: rgb(43, 174, 179);
     padding-top: 1px;
     padding-bottom: 1px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> add-html-skeleton
     text-align: center; 
 }
 
@@ -80,5 +83,13 @@ footer {
 
 #footer-text {
     display: inline-block;
+<<<<<<< HEAD
     vertical-align: middle;
+=======
+  vertical-align: middle;
+}
+
+#map-Awesome {
+    margin: auto;
+>>>>>>> add-html-skeleton
 }
