@@ -19,9 +19,6 @@ $('#search-form').on('submit', function (event) {
     var search = $("#search").val();
 
     function showPosition(position) {
-        var x = document.getElementById("location");
-        x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
         var latlon = position.coords.latitude + "," + position.coords.longitude;
 
         $.ajax({
@@ -144,7 +141,6 @@ $('#search-form').on('submit', function (event) {
         $("#recent-search-input").append(search + "<br>");
     });
     
-
 });
 
 
