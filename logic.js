@@ -33,8 +33,8 @@ $(document).ready(function(){
                 dataType: "json",
                 success: function(json) {
                     console.log(json);
-                    var e = document.getElementById("events");
-                    e.innerHTML = json.page.totalElements + " events found.";
+                    // var e = document.getElementById("events");
+                    // e.innerHTML = json.page.totalElements + " events found.";
                     showEvents(json);
                 },
                 error: function(xhr, status, err) {
@@ -93,16 +93,15 @@ $(document).ready(function(){
         // // Creating table for recent searches to show band, venue, and location
         console.log(search);
         $("#myTable > tbody").prepend("<tr><td>" + search + "</td></tr>");
-    
-        $('#myTable').pageMe({
-            pagerSelector:'#myPager',
-            activeColor: 'blue',
-            prevText:'Anterior',
-            nextText:'Siguiente',
-            showPrevNext:true,
-            hidePageNumbers:false,
-            perPage:10
-          });
+        
+    // $('#myPager').materializePagination({
+    //         lastPage: 100,
+    //         firstPage:  1,
+    //         align: center,
+    //         urlParameter: 'page',
+    //         useUrlParameter: true,
+    //     });
+            
     });
   })
 });
