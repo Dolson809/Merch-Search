@@ -65,6 +65,7 @@ $(document).ready(function () {
 
 
   function showEvents(json) {
+    
     // for (var i = 0; i < json.page.size; i++) {
       //  $("#events").append("<p>" + json._embedded.events[i].images[0].url + "</p>");
       var artistName = $("<h3>").text(json._embedded.events[0].name);
@@ -74,6 +75,12 @@ $(document).ready(function () {
       $("#events").append(artistName, artistImg, buyTickets, artistUrl);
     // }
   }
+  $("#previous").on("click", function(){
+      showEvents();
+      showEvents.clear();
+     
+  })
+
 
 
   function initMap(position, json) {
