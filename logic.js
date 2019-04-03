@@ -9,9 +9,9 @@ $(document).ready(function(){
       widgetsLib.widgetsMap[0].update();
       $('#mapContainer').attr('w-keyword', search);
       function showPosition(position) {
-          var x = document.getElementById("location");
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude; 
+        //  var x = document.getElementById("location"); 
+          // x.innerHTML = "Latitude: " + position.coords.latitude + 
+          // "<br>Longitude: " + position.coords.longitude; 
           var latlon = position.coords.latitude + "," + position.coords.longitude;
         
         
@@ -69,12 +69,14 @@ $(document).ready(function(){
   // for(var i=0; i<json.page.size; i++) {
   //   $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
   // }
-  var artistName = $("<h3>").text(json._embedded.events[0].name);
+  var artistName = $("eventPara").text(json._embedded.events[0].name);
   var artistImg = $("<img>").attr("src", json._embedded.events[0].images[0].url);
-  artistImg.css({"height": "auto", "width": "100%"});
+  artistImg.css({"height": "auto", "width": "75%"});
   var buyTickets = $("<a>").attr("href", json._embedded.events[0].url).text("Buy tickets here");
   var artistUrl = $("<a>").attr("href", json._embedded.events[0].url).append(buyTickets);
-  $("#events").append(artistName, artistImg, buyTickets, artistUrl);
+  var artistVenue = $("venuePara").text(json.events[0]._embedded.venues[0].name);
+  var venueAddress = $("addressPara").text(json.events[0]._embedded.venues.address.line1);
+  $("#events").append(artistName, artistImg, buyTickets, artistUrl, artistVenue, venueAddress);
   }
   
   
