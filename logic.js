@@ -1,3 +1,17 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyCB6qh2EIp56wDgCmKr6Xr7ZhC4QeWkCUE",
+    authDomain: "live-band-locator.firebaseapp.com",
+    databaseURL: "https://live-band-locator.firebaseio.com",
+    projectId: "live-band-locator",
+    storageBucket: "live-band-locator.appspot.com",
+    messagingSenderId: "237657419064"
+  };
+firebase.initializeApp(config);
+
+// Assign the reference to the database to a variable named 'database'
+var database = firebase.database();
+
 // Add Ticketmaster API here
 $(document).ready(function(){
   
@@ -8,38 +22,50 @@ $(document).ready(function(){
       widgetsLib.widgetsMap[0].eventsRootContainer.parentNode.setAttribute('w-keyword', search)
       widgetsLib.widgetsMap[0].update();
       $('#mapContainer').attr('w-keyword', search);
-      function showPosition(position) {
-          var x = document.getElementById("location");
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude; 
-          var latlon = position.coords.latitude + "," + position.coords.longitude;
+        function showPosition(position) {
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
         
         
-          $.ajax({
-            type:"GET",
-            url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&keyword=" + search,
-            async:true,
-            dataType: "json",
-            success: function(json) {
-                  console.log(json);
-                  var e = document.getElementById("events");
-                  e.innerHTML = json.page.totalElements + " events found.";
-                  showEvents(json);
-              },
-            error: function(xhr, status, err) {
-                  console.log(err);
-              }
-          });
-        
-      }
-      function getLocation() {
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition, showError);
-          } else {
-              var x = document.getElementById("location");
-              x.innerHTML = "Geolocation is not supported by this browser.";
-          }
-      }
+            $.ajax({
+                type:"GET",
+                url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&keyword=" + search,
+                async:true,
+                dataType: "json",
+                success: function(json) {
+                    console.log(json);
+                    var e = document.getElementById("events");
+                    e.innerHTML = json.page.totalElements + " events found.";
+                    showEvents(json);
+                },
+                error: function(xhr, status, err) {
+                    console.log(err);
+                }
+            });
+
+            // Firebase
+            // Variables to hold band and location
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Creating an object to push to firebase
+            var newSearch = {
+                search: search,
+                latitude: latitude,
+                longitude: longitude
+            }
+            console.log(newSearch);
+            // Pushing results to firebase
+            database.ref().push(newSearch);       
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                var x = document.getElementById("location");
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
         
         
         function showError(error) {
@@ -56,10 +82,20 @@ $(document).ready(function(){
               case error.UNKNOWN_ERROR:
                   x.innerHTML = "An unknown error occurred."
                   break;
-          }
-      }
+            }
+        }
       getLocation();
+
+      database.ref().on("child_added", function(snapshot) {
+        // Variables to hold search name
+        var search = snapshot.val().search;
+    
+        // // Creating table for recent searches to show band, venue, and location
+        console.log(search);
+        $("#recent-search-input").append(search + "<br>");
+    });
   })
+});
   
   
   
@@ -71,7 +107,7 @@ function showEvents(json) {
     // }
     var artistName = $("<h3>").text(json._embedded.events[0].name);
     var artistImg = $("<img>").attr("src", json._embedded.events[0].images[0].url);
-    artistImg.css({"height": "auto", "width": "100%"});
+    artistImg.css({"height": "auto", "width": "50%"});
     var buyTickets = $("<a>").attr("href", json._embedded.events[0].url).text("Buy tickets here");
     var artistUrl = $("<a>").attr("href", json._embedded.events[0].url).append(buyTickets);
     $("#events").append(artistName, artistImg, buyTickets, artistUrl);
