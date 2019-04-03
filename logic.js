@@ -92,7 +92,17 @@ $(document).ready(function(){
     
         // // Creating table for recent searches to show band, venue, and location
         console.log(search);
-        $("#recent-search-input").append(search + "<br>");
+        $("#myTable > tbody").prepend("<tr><td>" + search + "</td></tr>");
+    
+        $('#myTable').pageMe({
+            pagerSelector:'#myPager',
+            activeColor: 'blue',
+            prevText:'Anterior',
+            nextText:'Siguiente',
+            showPrevNext:true,
+            hidePageNumbers:false,
+            perPage:10
+          });
     });
   })
 });
@@ -105,12 +115,10 @@ function showEvents(json) {
     // for(var i=0; i<json.page.size; i++) {
     //   $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
     // }
-    var artistName = $("<h3>").text(json._embedded.events[0].name);
-    var artistImg = $("<img>").attr("src", json._embedded.events[0].images[0].url);
-    artistImg.css({"height": "auto", "width": "50%"});
-    var buyTickets = $("<a>").attr("href", json._embedded.events[0].url).text("Buy tickets here");
-    var artistUrl = $("<a>").attr("href", json._embedded.events[0].url).append(buyTickets);
-    $("#events").append(artistName, artistImg, buyTickets, artistUrl);
+    $("#artist-image").attr("src", json._embedded.events[0].images[0].url);
+    $("#artist-image").css({"height": "auto", "width": "50%", "margin": "auto"});
+    $("#buy-tickets").attr("href", json._embedded.events[0].url).text("Buy Tickets")
+    $("#artist-name").text(json._embedded.events[0].name);1
 }
   
   
