@@ -65,11 +65,17 @@ $(document).ready(function(){
   
   
   
-  function showEvents(json) {
-  for(var i=0; i<json.page.size; i++) {
-    $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
-  }
-  }
+function showEvents(json) {
+    // for(var i=0; i<json.page.size; i++) {
+    //   $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
+    // }
+    var artistName = $("<h3>").text(json._embedded.events[0].name);
+    var artistImg = $("<img>").attr("src", json._embedded.events[0].images[0].url);
+    artistImg.css({"height": "auto", "width": "100%"});
+    var buyTickets = $("<a>").attr("href", json._embedded.events[0].url).text("Buy tickets here");
+    var artistUrl = $("<a>").attr("href", json._embedded.events[0].url).append(buyTickets);
+    $("#events").append(artistName, artistImg, buyTickets, artistUrl);
+}
   
   
 //   function initMap(position, json) {
