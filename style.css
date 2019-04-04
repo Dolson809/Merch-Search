@@ -140,7 +140,6 @@ border-top: solid black 1px;
 }
 
 #recent-search-input {
-    height: 100px;
     overflow: auto;
     margin: auto;
 }
@@ -148,4 +147,5 @@ border-top: solid black 1px;
 #recent-searches {
     padding-top: 10px;
     vertical-align: middle;
+    height: 187px;
 }
