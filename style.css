@@ -2,10 +2,6 @@
     background-color: rgb(43, 174, 179);
     padding-top: 1px;
     padding-bottom: 1px;
-<<<<<<< HEAD
-
-=======
->>>>>>> add-html-skeleton
     text-align: center; 
 }
 
@@ -93,4 +89,9 @@ footer {
 .search-card {
     margin: auto;
     width: 100%;
+}
+
+#recent-search-input {
+    height: 50px;
+    overflow: auto;
 }
