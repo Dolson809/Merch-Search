@@ -1,12 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Merch-Search</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <title>Merch Search</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/car8sqs.css">
+</head> 
+    <body>
+        <div id="header">
+            <h1 id="h1">Show Search</h1> 
+        </div>
+        <div id="navBar">
+            <div id="nav-wrapper">
+                <form id="search-form">
+                    <div class="input-field">
+                        <input id="search" type="search" placeholder="Search Bands Here!" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container" id = "mainContainer">
+                <div  id="bandNameContainer">
+                    <h1 id="bandName">Type your favorite artist in the search bar!</h1>
+                </div>
+                    <div class="row search-card">
+                        <div class="col s12 m6">
+                            <div class="card blue-grey darken-1">
+                                <div class="card-image" id="artist-card">
+                                    <img id="artist-image">
+                                </div>
+                                <div class="card-action">
+                                    <a id="buy-tickets" href="#">Buy Tickets</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <div id="mapContainer">
+                                <div id="map-Awesome" w-type="map" w-tmapikey="prVYbTGmC0LdZBZVwQgyNB4pun2XKbV2" w-googleapikey="AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="400" w-height="350" w-size="25" w-border="0" w-borderradius="8" w-radius="60" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-geoposition="on" w-classificationname="" w-source="ticketmaster" w-countrycode="US" w-postalcode="" w-city="" w-latlong=""></div>
+                            </div>
+                        </div>
+                    </div>    
+            <div class="row">
+                <div id="recent-searches" class="card blue-grey darken-1">
+                    <div class="card-content black-text">
+                        <h3 class="card-title">Recent Searches</h3>
+                        <div id="recent-search-input"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">   
+            <p id=footer-text> © Show Search 2019</p>  
+        </footer>
+        <script src="logic.js"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQe2YPit4UcokaeSaiZp1KiPVwFxke7os&libraries=visualization,places"
+            async defer>
+        </script>
+        <script
+            src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js">
+        </script>
+    </body>
 </html>
+
