@@ -92,6 +92,11 @@ footer {
 }
 
 #recent-search-input {
-    height: 50px;
+    height: 100px;
     overflow: auto;
+    margin: auto;
+}
+
+#recent-searches {
+    padding-top: 10px;
 }
