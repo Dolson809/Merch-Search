@@ -25,7 +25,6 @@ $(document).ready(function(){
         function showPosition(position) {
             var latlon = position.coords.latitude + "," + position.coords.longitude;
         
-        
             $.ajax({
                 type:"GET",
                 url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&keyword=" + search,
@@ -81,17 +80,15 @@ $(document).ready(function(){
                   break;
             }
         }
-      getLocation();
-
-      database.ref().on("child_added", function(snapshot) {
+        getLocation();
+    });
+    database.ref().on("child_added", function(snapshot) {
         // Variables to hold search name
         var search = snapshot.val().search;
-    
-        // // Creating table for recent searches to show band, venue, and location
         console.log(search);
-        $("#recent-search-input").prepend(search + "<br>");       
-    });
-  })
+        // // Creating table for recent searches to show band, venue, and location
+        $("#recent-search-input").prepend(search + "<br>");
+  });
 });
   
 function showEvents(json) {
