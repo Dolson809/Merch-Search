@@ -33,8 +33,6 @@ $(document).ready(function(){
                 dataType: "json",
                 success: function(json) {
                     console.log(json);
-                    // var e = document.getElementById("events");
-                    // e.innerHTML = json.page.totalElements + " events found.";
                     showEvents(json);
                 },
                 error: function(xhr, status, err) {
@@ -67,7 +65,6 @@ $(document).ready(function(){
             }
         }
         
-        
         function showError(error) {
           switch(error.code) {
               case error.PERMISSION_DENIED:
@@ -92,30 +89,15 @@ $(document).ready(function(){
     
         // // Creating table for recent searches to show band, venue, and location
         console.log(search);
-        $("#myTable > tbody").prepend("<tr><td>" + search + "</td></tr>");
-        
-    // $('#myPager').materializePagination({
-    //         lastPage: 100,
-    //         firstPage:  1,
-    //         align: center,
-    //         urlParameter: 'page',
-    //         useUrlParameter: true,
-    //     });
-            
+        $("#recent-search-input").prepend(search + "<br>");       
     });
   })
 });
   
-  
-  
-  
-  
 function showEvents(json) {
-    // for(var i=0; i<json.page.size; i++) {
-    //   $("#events").append("<p>"+json._embedded.events[i].name+"</p>");
-    // }
     $("#artist-image").attr("src", json._embedded.events[0].images[0].url);
     $("#artist-image").css({"height": "auto", "width": "50%", "margin": "auto"});
     $("#buy-tickets").attr("href", json._embedded.events[0].url).text("Buy Tickets")
     $("#artist-name").text(json._embedded.events[0].name);1
 }
+  
