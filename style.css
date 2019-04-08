@@ -120,7 +120,7 @@ body {
     text-align: center;
     height: 100px;
     background: rgb(43, 174, 179);
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 25px;
     border-top: solid black 1px;
 }
@@ -148,4 +148,7 @@ body {
     padding-top: 10px;
     vertical-align: middle;
     height: 187px;
+}
+body{
+    background-image: url(../Merch-Search/images/footer_lodyas.png)
 }
